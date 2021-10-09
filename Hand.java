@@ -59,4 +59,8 @@ public class Hand
 		}
 		return s;
 	}
+	public String dealerToString(boolean hide) {
+		String s = theHand[0].toString() + ", [Hide]";
+		return s;
+	}
 }

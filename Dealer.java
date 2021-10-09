@@ -2,9 +2,11 @@ package BlackJack;
 
 public class Dealer {
 	private Hand hand;
+	private boolean hide;
 
 	public Dealer() {
 		hand = new Hand();
+		hide = true;
 	}
 	// Determines if dealer has a blackjack
 	public boolean isBlackjack(){
@@ -17,22 +19,7 @@ public class Dealer {
 	public Hand getHand() {
 		return hand;
 	}
-//	// This automates the dealer's play
-//	public void dealerPlay(){
-//		
-//		System.out.println("Dealer has " + hand.calculateTotal());
-//		while (hand.calculateTotal() <= 16) {
-//			System.out.println("Dealer has " + hand.calculateTotal()+ " and hits");
-//			
-//			hand.addCard(deck.getNextCard());
-//			System.out.println("Dealer " + this.getHandString(true, false));
-//		} 
-//		if ( hand.calculateTotal() > 21) {
-//			System.out.println("Dealer busts. " + this.getHandString(true, false));
-//		} else {
-//			System.out.println("Dealer stands. " + this.getHandString(true, false));
-//		}
-//	}
+
 	
 
 	
@@ -46,9 +33,18 @@ public class Dealer {
 		hand.clearHand();
 	}
 	
-	public String getHandString() {
-		String str = "Dealer Cards:" + hand.toString();
+	public String getHandString(boolean hide) {
+		String str = "";
+		if(hide) {
+			str = "Dealer Cards:" + hand.dealerToString(hide);
+		}
+		else {
+			str = "Dealer Cards:" + hand.toString();
+		}
 
 		return str;
+	}
+	public boolean getHide() {
+		return hide;
 	}
 }

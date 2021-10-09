@@ -6,6 +6,10 @@ public class Player {
 	private String name;
 	private Hand hand;
 	
+	public Player() {
+		bank = 100000;
+		hand = new Hand();
+	}
 	public Player(int bank, String name) {
 		this.setBank(bank);
 		this.setName(name);
@@ -44,7 +48,9 @@ public class Player {
 		bank -= bet;
 		bet = 0;
 	}
-	
+	public void push() {
+		bet = 0;
+	}
 //	// Sets a player's bet to 0 if the "push". Notice, no bet is added or removed.
 //	public void push() {
 //		bet = 0;
@@ -80,5 +86,15 @@ public class Player {
 	// Clears a player's hand
 	public void clearPlayerHand() {
 		hand.clearHand();
+	}
+	
+	// This sets the player bank to -1. -1 is unreachable and they are removed from the game
+	public void removeFromGame() {
+		bank = -1;
+	}
+	
+	// This resets the bank to 0. Currently used to reset a removed player's bank from -1 to 0.
+	public void resetBank() {
+		bank = 0;
 	}
 }
