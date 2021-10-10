@@ -45,7 +45,7 @@ public class Deck {
 	}
 	public void printAll() {
 		for(int i = 0; i < cards.size(); i++) {
-			System.out.println(cards.get(i).getValue());
+			System.out.print(cards.get(i).getValue() + ", ");
 		}
 	}
 	public Card getNextCard() {
@@ -72,8 +72,8 @@ public class Deck {
 	
 	
 	
-//	public static void main(String[] args) {
-//		Peck p = new Peck(1);
-//		p.printAll();
+//	public static void main(String[] args) {   //test use for check the peck is available
+//		Deck d = new Deck(2);
+//		d.printAll();
 //	}
 }

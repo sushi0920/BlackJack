@@ -16,13 +16,15 @@ public class Dealer {
 			return false;
 		}
 	}
+	
+	public boolean getHide() {
+		return hide;
+	}
+	
 	public Hand getHand() {
 		return hand;
 	}
 
-	
-
-	
 	// Calculates the dealer's hand total
 	public int calculateTotal() {
 		return hand.calculateTotal();
@@ -44,7 +46,5 @@ public class Dealer {
 
 		return str;
 	}
-	public boolean getHide() {
-		return hide;
-	}
+	
 }

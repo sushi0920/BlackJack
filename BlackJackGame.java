@@ -145,23 +145,19 @@ public class BlackJackGame {
 			}
 		}
 		if (isSomePlayerStillInTheGame) {
-			dealerPlay();
-		}
-	}
-	// This automates the dealer's play
-	public void dealerPlay(){
-		
-		System.out.println("Dealer has " + dealer.getHand().calculateTotal());
-		while (dealer.getHand().calculateTotal() <= 16) {
-			System.out.println("Dealer has " + dealer.getHand().calculateTotal()+ " and hits");
-			
-			dealer.getHand().addCard(deck.getNextCard());
-			System.out.println("Dealer " + dealer.getHand().toString());
-		} 
-		if ( dealer.getHand().calculateTotal() > 21) {
-			System.out.println("Dealer busts. " + dealer.getHand().toString());
-		} else {
-			System.out.println("Dealer stands. " + dealer.getHand().toString());
+
+			System.out.println("Dealer has " + dealer.getHand().calculateTotal());
+			while (dealer.getHand().calculateTotal() <= 16) {
+				System.out.println("Dealer has " + dealer.getHand().calculateTotal()+ " and hits");
+				
+				dealer.getHand().addCard(deck.getNextCard());
+				System.out.println("Dealer " + dealer.getHand().toString());
+			} 
+			if ( dealer.getHand().calculateTotal() > 21) {
+				System.out.println("Dealer busts. " + dealer.getHand().toString());
+			} else {
+				System.out.println("Dealer stands. " + dealer.getHand().toString());
+			}
 		}
 	}
 	// This code calculates all possible outcomes and adds or removes the player bets
@@ -274,41 +270,38 @@ public class BlackJackGame {
 		return end;
 	}
 	
-	// This is the endgame code for when all players are out of the game or players decide to stop playing
-		public void endGame() {
-			int endAmount;
-			String endState = " no change.";
-			System.out.println("");
-			for (int i = 0; i < users; i++) {
-				if(players[i].getBank() == -1)
-				{
-					players[i].resetBank();
-				}
-				endAmount = players[i].getBank() - 100;
-				if(endAmount > 0)
-				{
-					endState = " gain of ";
-				}
-				else if(endAmount < 0)
-				{
-					endState = " loss of ";
-				}
-				System.out.println(players[i].getName() + " has ended the game with " + players[i].getBank() + ".");
-				if(endState != " no change.")
-				{
-				System.out.println("A" + endState + Math.abs(endAmount) + ".");
-				}
-				else
-				{
-				System.out.println("No change from their starting value.");	
-				}
-				System.out.println("");
+	// This is the end game code for when all players are out of the game or players decide to stop playing
+	public void endGame() {
+		int endAmount;
+		String endState = " no change.";
+		System.out.println("");
+		for (int i = 0; i < users; i++) {
+			if(players[i].getBank() == -1)
+			{
+				players[i].resetBank();
+			}
+			endAmount = players[i].getBank() - 100;
+			if(endAmount > 0)
+			{
+				endState = " gain of ";
+			}
+			else if(endAmount < 0)
+			{
+				endState = " loss of ";
+			}
+			System.out.println(players[i].getName() + " has ended the game with " + players[i].getBank() + ".");
+			if(endState != " no change.")
+			{
+			System.out.println("A" + endState + Math.abs(endAmount) + ".");
+			}
+			else
+			{
+			System.out.println("No change from their starting value.");	
 			}
 			System.out.println("");
-			System.out.println("");
-			System.out.println("Thank you for playing!");
 		}
-
-
-} //End class
-
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Thank you for playing!");
+	}
+}

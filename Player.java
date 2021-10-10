@@ -48,13 +48,10 @@ public class Player {
 		bank -= bet;
 		bet = 0;
 	}
+	// Sets a player's bet to 0 if the "push". Notice, no bet is added or removed.
 	public void push() {
 		bet = 0;
 	}
-//	// Sets a player's bet to 0 if the "push". Notice, no bet is added or removed.
-//	public void push() {
-//		bet = 0;
-//	}
 	
 	// Sets a player's bet
 	public boolean setBet(int newBet) {
